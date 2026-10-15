@@ -1,0 +1,111 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Step 4 (2): Decisioni e cicli · Tutorial Python</title><meta name="color-scheme" content="light dark"><script>try{if(localStorage.t==="dark"||(!localStorage.t&&matchMedia("(prefers-color-scheme:dark)").matches))document.documentElement.classList.add("dark")}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%99%9B%3C/text%3E%3C/svg%3E"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=JetBrains+Mono:wght@400;500&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="css/theme.css"></head><body><a class="skip" href="#main">Vai al contenuto</a><div id="bar"></div><header class="top"><button id="menu" aria-label="Apri il menu" aria-expanded="false">☰</button><a class="logo" href="index.html"><i>♛</i>Tutorial Python</a><input id="q" type="search" placeholder="Cerca nel tutorial…  ( / )" autocomplete="off" aria-label="Cerca nel tutorial"><button id="theme" aria-label="Cambia tema"><span class="sun">☀</span><span class="moon">☾</span></button></header><div id="res" role="listbox"></div><div id="ov"></div><div class="wrap"><nav id="side" aria-label="Indice del tutorial"><a href="index.html"><span>🏠</span>Home</a><div class="g">Metodo</div><a href="step1-3.html"><span>🧭</span>Step 1–3: Capire e pianificare</a><a href="step5-errori.html"><span>🐞</span>Step 5: Prove ed errori</a><div class="g">Python base</div><a href="step4-basi.html"><span>🧱</span>Step 4 (1): Basi del codice</a><a href="step4-controllo.html" class="on" aria-current="page"><span>🔁</span>Step 4 (2): Decisioni e cicli</a><div class="g">Programmazione avanzata</div><a href="funzioni.html"><span>⚙️</span>Funzioni (P5)</a><a href="liste.html"><span>📚</span>Liste, tuple e tabelle (P6)</a><a href="insiemi-dizionari.html"><span>🗂️</span>Insiemi e dizionari (P8)</a><a href="file-eccezioni.html"><span>📄</span>File ed eccezioni (P7)</a><div class="g">Riferimento</div><a href="formulario.html"><span>📖</span>Formulario</a><a href="glossario.html"><span>🔤</span>Glossario e quiz</a><div class="g">Strumenti</div><a href="compilatore.html"><span>▶️</span>Compilatore Python online</a></nav><main id="main" class="pg"><header class="hero"><span class="crest" aria-hidden="true">🔁</span><div><div class="kick">Python base</div><h1>Step 4 (2): Decisioni e cicli</h1><p class="lede">if/elif/else, condizioni, while, for, sentinelle, nidificati, Monte Carlo, BlackJack.</p></div></header>
+<h2 id="s1">4.7 Decisioni: if, else, elif</h2>
+<div class="code"><button class="copy">Copia</button><pre><code>quantita = 6
+totale = 12.0
+if quantita &gt;= 5:
+    totale = totale - totale * 10 / 100
+elif quantita &lt; 0:
+    print(&quot;Dato non valido&quot;)
+else:
+    print(&quot;Nessuno sconto&quot;)
+print(totale)</code></pre></div>
+<p>L'<b>indentazione</b> (4 spazi) decide quali righe appartengono al blocco; i due punti aprono il blocco. Con <code>elif</code> si sceglie tra più di due possibilità: parte solo il primo ramo vero.</p>
+<h2 id="s2">4.8 Condizioni: and, or, not</h2>
+<div class="tw"><table><thead><tr><th>Operatore</th><th>Significato</th></tr></thead><tbody><tr><td><code>== !=</code></td><td>uguale / diverso</td></tr><tr><td><code>&lt; &lt;= &gt; &gt;=</code></td><td>confronti</td></tr><tr><td><code>and</code></td><td>vere entrambe</td></tr><tr><td><code>or</code></td><td>almeno una vera</td></tr><tr><td><code>not</code></td><td>nega</td></tr></tbody></table></div>
+<div class="box warn"><b>Attenzione</b><code>=</code> assegna, <code>==</code> confronta. I float vanno confrontati con <code>math.isclose</code>; i testi distinguono maiuscole e minuscole (usa <code>.lower()</code>).</div>
+<h2 id="s3">4.9 Controllare i dati di input()</h2>
+<div class="code"><button class="copy">Copia</button><pre><code>eta = int(input(&quot;Età: &quot;))
+if eta &lt; 0 or eta &gt; 120:
+    print(&quot;Valore non valido&quot;)</code></pre></div>
+<h2 id="s4">4.10 I quaderni: tutto insieme</h2>
+<div class="code"><button class="copy">Copia</button><pre><code>SOGLIA_SCONTO = 5
+PERCENTUALE_SCONTO = 10
+
+prezzo = float(input(&quot;Prezzo di un quaderno: &quot;))
+quantita = int(input(&quot;Quantità: &quot;))
+
+if prezzo &lt; 0 or quantita &lt; 0:
+    print(&quot;Dato non valido&quot;)
+else:
+    totale = prezzo * quantita
+    if quantita &gt;= SOGLIA_SCONTO:
+        sconto = totale * PERCENTUALE_SCONTO / 100
+        totale = totale - sconto
+    print(f&quot;Da pagare: {totale:.2f} euro&quot;)</code></pre></div>
+<h2 id="s5">4.11 Cicli while</h2>
+<div class="code"><button class="copy">Copia</button><pre><code>n = 3
+while n &gt; 0:
+    print(n)
+    n -= 1</code></pre></div><div class="out"><span>Output</span><pre>3
+2
+1</pre></div>
+<p>La condizione è controllata <b>prima</b> di ogni giro; se non cambia mai, il ciclo è infinito (Ctrl+C per fermarlo). Va bene anche per cicli che dipendono da un evento.</p>
+<h2 id="s6">4.12 for, range(), enumerate()</h2>
+<div class="tw"><table><thead><tr><th>Forma</th><th>Valori</th></tr></thead><tbody><tr><td><code>range(5)</code></td><td>0,1,2,3,4</td></tr><tr><td><code>range(2,6)</code></td><td>2,3,4,5</td></tr><tr><td><code>range(0,10,3)</code></td><td>0,3,6,9</td></tr><tr><td><code>range(5,0,-1)</code></td><td>5,4,3,2,1</td></tr></tbody></table></div>
+<div class="code"><button class="copy">Copia</button><pre><code>for i, nome in enumerate([&quot;Ada&quot;,&quot;Bob&quot;]):
+    print(i, nome)</code></pre></div><div class="out"><span>Output</span><pre>0 Ada
+1 Bob</pre></div>
+<h2 id="s7">4.13 Richiedere di nuovo un dato</h2>
+<div class="code"><button class="copy">Copia</button><pre><code>quantita = int(input(&quot;Quantità: &quot;))
+while quantita &lt; 0:
+    print(&quot;Errore: non può essere negativa&quot;)
+    quantita = int(input(&quot;Quantità: &quot;))</code></pre></div>
+<h2 id="s8">4.14 Somma, conteggio, media, sentinelle</h2>
+<p>Pattern: inizializza <code>somma = 0</code> e <code>conteggio = 0</code>, aggiorna nel ciclo, calcola la media <b>dopo</b>, evitando divisioni per zero. La <b>sentinella</b> è un valore speciale che segnala la fine dei dati quando non si sa quanti ne arriveranno.</p>
+<div class="code"><button class="copy">Copia</button><pre><code>somma = 0
+conteggio = 0
+voto = float(input(&quot;Voto (-1 per finire): &quot;))
+while voto != -1:
+    somma += voto
+    conteggio += 1
+    voto = float(input(&quot;Voto (-1 per finire): &quot;))
+if conteggio &gt; 0:
+    print(f&quot;Media: {somma/conteggio:.2f}&quot;)</code></pre></div>
+<h2 id="s9">4.15 Ricerca, massimo, minimo, break, continue</h2>
+<div class="code"><button class="copy">Copia</button><pre><code>valori = [4, 9, 2, 7]
+massimo = valori[0]
+for v in valori[1:]:
+    if v &gt; massimo:
+        massimo = v
+print(massimo)</code></pre></div>
+<div class="tw"><table><thead><tr><th>Istruzione</th><th>Effetto</th></tr></thead><tbody><tr><td><code>break</code></td><td>esce subito dal ciclo</td></tr><tr><td><code>continue</code></td><td>salta al giro successivo</td></tr></tbody></table></div>
+<h2 id="s10">4.16 Elaborare stringhe con i cicli</h2>
+<div class="code"><button class="copy">Copia</button><pre><code>testo = &quot;Ciao Mondo&quot;
+vocali = 0
+for c in testo.lower():
+    if c in &quot;aeiou&quot;:
+        vocali += 1
+print(vocali)</code></pre></div>
+<p>Per trovare <b>tutte</b> le corrispondenze scorri senza <code>break</code>; per la <b>prima</b> usa <code>break</code>; per l'<b>ultima</b> aggiorna una variabile a ogni trovata.</p>
+<h2 id="s11">4.17 Cicli annidati</h2>
+<div class="code"><button class="copy">Copia</button><pre><code>for riga in range(1,4):
+    for col in range(1,4):
+        print(riga*col, end=&quot;\t&quot;)
+    print()</code></pre></div><div class="out"><span>Output</span><pre>1	2	3
+2	4	6
+3	6	9</pre></div>
+<div class="box tip"><b>Consiglio</b>Per la media di più studenti, <b>azzera somma e conteggio dentro il ciclo esterno</b>: ogni studente riparte da zero.</div>
+<h2 id="s12">4.18 Numeri casuali e Monte Carlo</h2>
+<div class="code"><button class="copy">Copia</button><pre><code>import random
+dado = random.randint(1, 6)
+
+dentro = 0
+N = 100000
+for _ in range(N):
+    x, y = random.random(), random.random()
+    if x*x + y*y &lt;= 1:
+        dentro += 1
+print(4 * dentro / N)   # circa 3.14</code></pre></div>
+<h2 id="s13">4.19 Esempio finale: BlackJack semplificato</h2>
+<p>Informazioni da ricordare: punteggio del giocatore e se vuole un'altra carta.</p>
+<div class="code"><button class="copy">Copia</button><pre><code>import random
+punti = 0
+risposta = &quot;s&quot;
+while risposta == &quot;s&quot; and punti &lt; 21:
+    carta = random.randint(1, 10)
+    punti += carta
+    print(&quot;Carta:&quot;, carta, &quot;- Totale:&quot;, punti)
+    if punti &lt; 21:
+        risposta = input(&quot;Un&#x27;altra carta? (s/n) &quot;)
+print(&quot;Sballato!&quot; if punti &gt; 21 else f&quot;Ti fermi a {punti}&quot;)</code></pre></div>
+<nav class="pager" aria-label="Pagine"><a class="prev" href="step4-basi.html"><small>Precedente</small>Step 4 (1): Basi del codice</a><a class="next" href="step5-errori.html"><small>Successivo</small>Step 5: Prove ed errori</a></nav></main><aside id="toc" aria-label="In questa pagina"><b>In questa pagina</b><a class="" href="#s1">4.7 Decisioni: if, else, elif</a><a class="" href="#s2">4.8 Condizioni: and, or, not</a><a class="" href="#s3">4.9 Controllare i dati di input()</a><a class="" href="#s4">4.10 I quaderni: tutto insieme</a><a class="" href="#s5">4.11 Cicli while</a><a class="" href="#s6">4.12 for, range(), enumerate()</a><a class="" href="#s7">4.13 Richiedere di nuovo un dato</a><a class="" href="#s8">4.14 Somma, conteggio, media, sentinelle</a><a class="" href="#s9">4.15 Ricerca, massimo, minimo, break, continue</a><a class="" href="#s10">4.16 Elaborare stringhe con i cicli</a><a class="" href="#s11">4.17 Cicli annidati</a><a class="" href="#s12">4.18 Numeri casuali e Monte Carlo</a><a class="" href="#s13">4.19 Esempio finale: BlackJack semplificato</a></aside></div><script src="js/search-index.js"></script><script src="js/app.js"></script></body></html>

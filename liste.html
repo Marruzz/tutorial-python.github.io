@@ -1,0 +1,91 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Liste, tuple e tabelle (P6) · Tutorial Python</title><meta name="color-scheme" content="light dark"><script>try{if(localStorage.t==="dark"||(!localStorage.t&&matchMedia("(prefers-color-scheme:dark)").matches))document.documentElement.classList.add("dark")}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%99%9B%3C/text%3E%3C/svg%3E"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=JetBrains+Mono:wght@400;500&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="css/theme.css"></head><body><a class="skip" href="#main">Vai al contenuto</a><div id="bar"></div><header class="top"><button id="menu" aria-label="Apri il menu" aria-expanded="false">☰</button><a class="logo" href="index.html"><i>♛</i>Tutorial Python</a><input id="q" type="search" placeholder="Cerca nel tutorial…  ( / )" autocomplete="off" aria-label="Cerca nel tutorial"><button id="theme" aria-label="Cambia tema"><span class="sun">☀</span><span class="moon">☾</span></button></header><div id="res" role="listbox"></div><div id="ov"></div><div class="wrap"><nav id="side" aria-label="Indice del tutorial"><a href="index.html"><span>🏠</span>Home</a><div class="g">Metodo</div><a href="step1-3.html"><span>🧭</span>Step 1–3: Capire e pianificare</a><a href="step5-errori.html"><span>🐞</span>Step 5: Prove ed errori</a><div class="g">Python base</div><a href="step4-basi.html"><span>🧱</span>Step 4 (1): Basi del codice</a><a href="step4-controllo.html"><span>🔁</span>Step 4 (2): Decisioni e cicli</a><div class="g">Programmazione avanzata</div><a href="funzioni.html"><span>⚙️</span>Funzioni (P5)</a><a href="liste.html" class="on" aria-current="page"><span>📚</span>Liste, tuple e tabelle (P6)</a><a href="insiemi-dizionari.html"><span>🗂️</span>Insiemi e dizionari (P8)</a><a href="file-eccezioni.html"><span>📄</span>File ed eccezioni (P7)</a><div class="g">Riferimento</div><a href="formulario.html"><span>📖</span>Formulario</a><a href="glossario.html"><span>🔤</span>Glossario e quiz</a><div class="g">Strumenti</div><a href="compilatore.html"><span>▶️</span>Compilatore Python online</a></nav><main id="main" class="pg"><header class="hero"><span class="crest" aria-hidden="true">📚</span><div><div class="kick">Programmazione avanzata</div><h1>Liste, tuple e tabelle (P6)</h1><p class="lede">Liste, algoritmi, comprehension, tabelle 2D, copie.</p></div></header>
+<h2 id="s1">Liste nelle funzioni</h2>
+<p>Una funzione riceve un <b>alias</b> della lista, non una copia: può modificarla. Mai riassegnare il parametro (si perde l'alias).</p>
+<div class="code"><button class="copy">Copia</button><pre><code>def sumSquares(values):
+    total = 0
+    for element in values:
+        total = total + element ** 2
+    return total
+
+def multiply(values, factor):
+    for i in range(len(values)):
+        values[i] = values[i] * factor   # modifica l&#x27;originale!
+
+def squares(n):
+    result = []
+    for i in range(n):
+        result.append(i * i)
+    return result
+
+v = [1, 2, 3]
+multiply(v, 10)
+print(v, sumSquares(v), squares(5))</code></pre></div>
+<h2 id="s2">Tuple</h2>
+<p>Una tupla è una lista <b>immutabile</b>: <code>triple = (5, 10, 15)</code>. Supporta indici, concatenazione, <code>len/sum/max</code>, <code>for</code>, <code>in</code>. Serve a restituire più valori e per scambi.</p>
+<div class="code"><button class="copy">Copia</button><pre><code>def readDate():
+    month = int(input(&quot;month: &quot;))
+    day = int(input(&quot;day: &quot;))
+    year = int(input(&quot;year: &quot;))
+    return (month, day, year)
+
+month, day, year = readDate()
+a, b = 1, 2
+a, b = b, a      # scambio</code></pre></div>
+<h2 id="s3">List comprehension</h2>
+<div class="tw"><table><thead><tr><th>Schema</th><th>Esempio</th></tr></thead><tbody><tr><td><code>[espressione for el in contenitore]</code></td><td><code>[i*i for i in range(10)]</code></td></tr><tr><td>con condizione</td><td><code>[x for x in v if x &gt; 0]</code></td></tr><tr><td>cicli annidati</td><td><code>[(a,b) for a in A for b in B if a != b]</code></td></tr></tbody></table></div>
+<p>Funzionano anche per tuple, <code>set</code> e dizionari: <code>{i: i*i for i in range(10)}</code>.</p>
+<h2 id="s4">Adattare algoritmi</h2>
+<p>Punteggio del quiz escludendo il più basso: trova la <b>posizione</b> del minimo, rimuovila con <code>pop</code>, somma.</p>
+<div class="code"><button class="copy">Copia</button><pre><code>values = [8, 3, 9, 6]
+smallestPosition = 0
+for i in range(1, len(values)):
+    if values[i] &lt; values[smallestPosition]:
+        smallestPosition = i
+values.pop(smallestPosition)
+total = sum(values)
+print(total)</code></pre></div>
+<p>Per escludere i due più bassi si chiama <code>removeMinimum</code> due volte, controllando prima che la lista abbia almeno due elementi.</p>
+<h3 id="s5">Esempio: frequenza dei dadi</h3>
+<div class="code"><button class="copy">Copia</button><pre><code>def countInputs(sides):
+    counters = [0] * (sides + 1)     # posizione 0 inutilizzata
+    value = int(input(&quot;Valore (0 per finire): &quot;))
+    while value != 0:
+        if 1 &lt;= value &lt;= sides:
+            counters[value] += 1
+        value = int(input(&quot;Valore (0 per finire): &quot;))
+    return counters</code></pre></div>
+<h2 id="s6">Scoprire algoritmi con oggetti</h2>
+<p>Allinea monete o carte per visualizzare rimozioni, inserimenti e scambi. Esempio: scambiare le due metà di una lista di dimensione pari.</p>
+<div class="code"><button class="copy">Copia</button><pre><code>values = [1, 2, 3, 4, 5, 6]
+size = len(values)
+for i in range(size // 2):
+    j = i + size // 2
+    values[i], values[j] = values[j], values[i]
+print(values)</code></pre></div>
+<h2 id="s7">Tabelle (liste 2D)</h2>
+<div class="code"><button class="copy">Copia</button><pre><code>COUNTRIES, MEDALS = 8, 3
+counts = [[0,3,0],[0,0,1],[0,0,1],[1,0,0],[0,0,1],[3,1,1],[0,1,0],[1,0,1]]
+
+table = []
+for i in range(5):
+    table.append([0] * 20)     # 5 righe x 20 colonne
+
+for i in range(COUNTRIES):
+    for j in range(MEDALS):
+        print(f&quot;{counts[i][j]:8d}&quot;, end=&quot;&quot;)
+    print()
+
+rowTotal = sum(counts[0])
+colTotal = sum(counts[i][0] for i in range(COUNTRIES))
+print(rowTotal, colTotal)</code></pre></div>
+<p>In una funzione: righe = <code>len(values)</code>, colonne = <code>len(values[0])</code>. Per gli elementi vicini attento ai bordi. Una tabella si ordina con <code>sort</code>/<code>sorted</code> (confronto riga per riga).</p>
+<h2 id="s8">Alias, copia superficiale e profonda</h2>
+<div class="tw"><table><thead><tr><th>Operazione</th><th>Effetto</th></tr></thead><tbody><tr><td><code>alias = table</code></td><td>stesso oggetto</td></tr><tr><td><code>list(table)</code>, <code>table[:]</code>, <code>table.copy()</code>, <code>copy.copy(table)</code></td><td>copia superficiale: le righe restano condivise</td></tr><tr><td><code>copy.deepcopy(table)</code></td><td>copia profonda: tutto indipendente</td></tr></tbody></table></div>
+<div class="code"><button class="copy">Copia</button><pre><code>import copy
+table = [[1, 2], [3, 4]]
+deep = copy.deepcopy(table)
+deep[0][0] = 99
+print(table, deep)</code></pre></div>
+<h2 id="s9">Sommario</h2>
+<ul><li>Indici validi: da 0 a len-1; fuori range → IndexError.</li><li>Ricerca lineare: scorre finché trova.</li><li>Scambio: variabile temporanea o assegnazione di tuple.</li><li>I parametri-lista ricevono un riferimento.</li></ul>
+<nav class="pager" aria-label="Pagine"><a class="prev" href="funzioni.html"><small>Precedente</small>Funzioni (P5)</a><a class="next" href="insiemi-dizionari.html"><small>Successivo</small>Insiemi e dizionari (P8)</a></nav></main><aside id="toc" aria-label="In questa pagina"><b>In questa pagina</b><a class="" href="#s1">Liste nelle funzioni</a><a class="" href="#s2">Tuple</a><a class="" href="#s3">List comprehension</a><a class="" href="#s4">Adattare algoritmi</a><a class="sub" href="#s5">Esempio: frequenza dei dadi</a><a class="" href="#s6">Scoprire algoritmi con oggetti</a><a class="" href="#s7">Tabelle (liste 2D)</a><a class="" href="#s8">Alias, copia superficiale e profonda</a><a class="" href="#s9">Sommario</a></aside></div><script src="js/search-index.js"></script><script src="js/app.js"></script></body></html>

@@ -1,0 +1,41 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>File ed eccezioni (P7) · Tutorial Python</title><meta name="color-scheme" content="light dark"><script>try{if(localStorage.t==="dark"||(!localStorage.t&&matchMedia("(prefers-color-scheme:dark)").matches))document.documentElement.classList.add("dark")}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%99%9B%3C/text%3E%3C/svg%3E"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=JetBrains+Mono:wght@400;500&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="css/theme.css"></head><body><a class="skip" href="#main">Vai al contenuto</a><div id="bar"></div><header class="top"><button id="menu" aria-label="Apri il menu" aria-expanded="false">☰</button><a class="logo" href="index.html"><i>♛</i>Tutorial Python</a><input id="q" type="search" placeholder="Cerca nel tutorial…  ( / )" autocomplete="off" aria-label="Cerca nel tutorial"><button id="theme" aria-label="Cambia tema"><span class="sun">☀</span><span class="moon">☾</span></button></header><div id="res" role="listbox"></div><div id="ov"></div><div class="wrap"><nav id="side" aria-label="Indice del tutorial"><a href="index.html"><span>🏠</span>Home</a><div class="g">Metodo</div><a href="step1-3.html"><span>🧭</span>Step 1–3: Capire e pianificare</a><a href="step5-errori.html"><span>🐞</span>Step 5: Prove ed errori</a><div class="g">Python base</div><a href="step4-basi.html"><span>🧱</span>Step 4 (1): Basi del codice</a><a href="step4-controllo.html"><span>🔁</span>Step 4 (2): Decisioni e cicli</a><div class="g">Programmazione avanzata</div><a href="funzioni.html"><span>⚙️</span>Funzioni (P5)</a><a href="liste.html"><span>📚</span>Liste, tuple e tabelle (P6)</a><a href="insiemi-dizionari.html"><span>🗂️</span>Insiemi e dizionari (P8)</a><a href="file-eccezioni.html" class="on" aria-current="page"><span>📄</span>File ed eccezioni (P7)</a><div class="g">Riferimento</div><a href="formulario.html"><span>📖</span>Formulario</a><a href="glossario.html"><span>🔤</span>Glossario e quiz</a><div class="g">Strumenti</div><a href="compilatore.html"><span>▶️</span>Compilatore Python online</a></nav><main id="main" class="pg"><header class="hero"><span class="crest" aria-hidden="true">📄</span><div><div class="kick">Programmazione avanzata</div><h1>File ed eccezioni (P7)</h1><p class="lede">Apertura, lettura, scrittura, CSV, eccezioni.</p></div></header>
+<h2 id="s1">Aprire e chiudere file</h2>
+<div class="code"><button class="copy">Copia</button><pre><code>f = open(&quot;dati.txt&quot;, &quot;r&quot;, encoding=&quot;utf-8&quot;)   # r lettura, w nuovo, a append
+f.close()
+
+with open(&quot;dati.txt&quot;, &quot;r&quot;, encoding=&quot;utf-8&quot;) as f:   # chiude da solo
+    pass</code></pre></div>
+<h2 id="s2">Leggere</h2>
+<div class="tw"><table><thead><tr><th>Metodo</th><th>Restituisce</th></tr></thead><tbody><tr><td><code>f.readline()</code></td><td>una riga con a-capo; stringa vuota a fine file</td></tr><tr><td><code>f.read(n)</code></td><td>al massimo n caratteri (senza argomento: tutto)</td></tr><tr><td><code>f.readlines()</code></td><td>lista di righe</td></tr><tr><td><code>for line in f</code></td><td>una riga per volta</td></tr></tbody></table></div>
+<div class="code"><button class="copy">Copia</button><pre><code>for line in f:
+    parole = line.rstrip().split()</code></pre></div>
+<h2 id="s3">Scrivere</h2>
+<div class="code"><button class="copy">Copia</button><pre><code>out = open(&quot;out.txt&quot;, &quot;w&quot;)
+out.write(&quot;Ciao\n&quot;)          # write NON aggiunge \n
+print(&quot;Totale&quot;, 9, file=out)  # print su file
+out.close()</code></pre></div>
+<h2 id="s4">CSV</h2>
+<div class="code"><button class="copy">Copia</button><pre><code>import csv
+with open(&quot;a.csv&quot;, newline=&quot;&quot;) as f:
+    for riga in csv.reader(f):          # lista di campi
+        pass
+with open(&quot;a.csv&quot;, newline=&quot;&quot;) as f:
+    for rec in csv.DictReader(f):       # dizionario
+        pass
+with open(&quot;b.csv&quot;, &quot;w&quot;, newline=&quot;&quot;) as f:
+    w = csv.DictWriter(f, fieldnames=[&quot;nome&quot;,&quot;voto&quot;])
+    w.writeheader()
+    w.writerow({&quot;nome&quot;: &quot;Ada&quot;, &quot;voto&quot;: 30})</code></pre></div>
+<p>Se il separatore non è la virgola usa <code>delimiter=";"</code>.</p>
+<h2 id="s5">Eccezioni</h2>
+<div class="code"><button class="copy">Copia</button><pre><code>try:
+    n = int(input(&quot;Numero: &quot;))
+except ValueError:
+    print(&quot;Non è un numero&quot;)
+
+try:
+    f = open(&quot;inesistente.txt&quot;)
+except OSError:
+    print(&quot;Errore nell&#x27;apertura del file&quot;)</code></pre></div>
+<div class="tw"><table><thead><tr><th>Eccezione</th><th>Quando</th></tr></thead><tbody><tr><td>ValueError</td><td>valore errato / conversione fallita</td></tr><tr><td>IndexError</td><td>indice fuori range (-1 non genera errore)</td></tr><tr><td>KeyError</td><td>chiave inesistente</td></tr><tr><td>OSError</td><td>errori di I/O (FileNotFoundError, PermissionError, FileExistsError)</td></tr></tbody></table></div>
+<nav class="pager" aria-label="Pagine"><a class="prev" href="insiemi-dizionari.html"><small>Precedente</small>Insiemi e dizionari (P8)</a><a class="next" href="formulario.html"><small>Successivo</small>Formulario</a></nav></main><aside id="toc" aria-label="In questa pagina"><b>In questa pagina</b><a class="" href="#s1">Aprire e chiudere file</a><a class="" href="#s2">Leggere</a><a class="" href="#s3">Scrivere</a><a class="" href="#s4">CSV</a><a class="" href="#s5">Eccezioni</a></aside></div><script src="js/search-index.js"></script><script src="js/app.js"></script></body></html>
