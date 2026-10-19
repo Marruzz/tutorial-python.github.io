@@ -88,4 +88,18 @@ deep[0][0] = 99
 print(table, deep)</code></pre></div>
 <h2 id="s9">Sommario</h2>
 <ul><li>Indici validi: da 0 a len-1; fuori range → IndexError.</li><li>Ricerca lineare: scorre finché trova.</li><li>Scambio: variabile temporanea o assegnazione di tuple.</li><li>I parametri-lista ricevono un riferimento.</li></ul>
+<h2 id="s10">Esempi guidati: liste e tabelle</h2>
+<p>Le <b>list comprehension</b> sono una forma compatta di un ciclo che costruisce una lista. Prima scrivi l’espressione da produrre, poi il ciclo; una condizione finale è facoltativa. Per algoritmi più lunghi o con più effetti collaterali è spesso più chiaro usare il <code>for</code> tradizionale.</p>
+<div class="code"><button class="copy">Copia</button><pre><code>quadrati = [x * x for x in range(6)]
+positivi = [x for x in [-2, 4, -1, 5] if x &gt; 0]
+print(quadrati)
+print(positivi)</code></pre></div>
+<p>Una tabella è una lista di righe, e ogni riga è a sua volta una lista. Per attraversarla servono due indici: il primo seleziona la riga, il secondo la colonna. Inizializza le righe separatamente per evitare che più righe condividano accidentalmente lo stesso oggetto.</p>
+<div class="code"><button class="copy">Copia</button><pre><code>tabella = []
+for _ in range(3):
+    tabella.append([0] * 4)
+tabella[1][2] = 7
+for riga in tabella:
+    print(riga)</code></pre></div>
+<p>Quando una lista contiene altre liste, <code>table.copy()</code> copia solo il primo livello. Per rendere indipendenti anche le righe usa <code>copy.deepcopy(table)</code>; questa differenza è essenziale quando modifichi una copia senza voler cambiare l’originale.</p>
 <nav class="pager" aria-label="Pagine"><a class="prev" href="funzioni.html"><small>Precedente</small>Funzioni (P5)</a><a class="next" href="insiemi-dizionari.html"><small>Successivo</small>Insiemi e dizionari (P8)</a></nav></main><aside id="toc" aria-label="In questa pagina"><b>In questa pagina</b><a class="" href="#s1">Liste nelle funzioni</a><a class="" href="#s2">Tuple</a><a class="" href="#s3">List comprehension</a><a class="" href="#s4">Adattare algoritmi</a><a class="sub" href="#s5">Esempio: frequenza dei dadi</a><a class="" href="#s6">Scoprire algoritmi con oggetti</a><a class="" href="#s7">Tabelle (liste 2D)</a><a class="" href="#s8">Alias, copia superficiale e profonda</a><a class="" href="#s9">Sommario</a></aside></div><script src="js/search-index.js"></script><script src="js/app.js"></script></body></html>

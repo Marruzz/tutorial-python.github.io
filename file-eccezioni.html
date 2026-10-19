@@ -38,4 +38,20 @@ try:
 except OSError:
     print(&quot;Errore nell&#x27;apertura del file&quot;)</code></pre></div>
 <div class="tw"><table><thead><tr><th>Eccezione</th><th>Quando</th></tr></thead><tbody><tr><td>ValueError</td><td>valore errato / conversione fallita</td></tr><tr><td>IndexError</td><td>indice fuori range (-1 non genera errore)</td></tr><tr><td>KeyError</td><td>chiave inesistente</td></tr><tr><td>OSError</td><td>errori di I/O (FileNotFoundError, PermissionError, FileExistsError)</td></tr></tbody></table></div>
+<h2 id="s6">Esempi guidati: CSV ed errori</h2>
+<p>Il modulo <code>csv</code> evita di dividere manualmente le righe: gestisce correttamente separatori e campi. <code>DictReader</code> usa la prima riga come intestazione e restituisce dizionari; i valori arrivano comunque come stringhe, quindi converti esplicitamente i numeri prima dei calcoli.</p>
+<div class="code"><button class="copy">Copia</button><pre><code>import csv
+from io import StringIO
+
+contenuto = "nome,voto\nAda,30\nBob,28\n"
+with StringIO(contenuto) as file:
+    for record in csv.DictReader(file):
+        print(record["nome"], int(record["voto"]))</code></pre></div>
+<p>Il costrutto <code>try/except</code> deve coprire soltanto le istruzioni che possono fallire. Gestisci l’eccezione più specifica possibile: <code>ValueError</code> segnala una conversione non riuscita, mentre <code>OSError</code> raccoglie i problemi di apertura e lettura del file. Non nascondere gli errori con un <code>except</code> generico se non sai come reagire.</p>
+<div class="code"><button class="copy">Copia</button><pre><code>try:
+    numero = int(input("Numero: "))
+except ValueError:
+    print("Devi inserire un intero valido")
+else:
+    print("Doppio:", numero * 2)</code></pre></div>
 <nav class="pager" aria-label="Pagine"><a class="prev" href="insiemi-dizionari.html"><small>Precedente</small>Insiemi e dizionari (P8)</a><a class="next" href="formulario.html"><small>Successivo</small>Formulario</a></nav></main><aside id="toc" aria-label="In questa pagina"><b>In questa pagina</b><a class="" href="#s1">Aprire e chiudere file</a><a class="" href="#s2">Leggere</a><a class="" href="#s3">Scrivere</a><a class="" href="#s4">CSV</a><a class="" href="#s5">Eccezioni</a></aside></div><script src="js/search-index.js"></script><script src="js/app.js"></script></body></html>

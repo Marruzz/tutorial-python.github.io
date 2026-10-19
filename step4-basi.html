@@ -47,4 +47,15 @@ print(s[0], s[-1], s[1:4], s[::-1])</code></pre></div><div class="out"><span>Out
 <h3 id="s13">Virgolette, backslash e Unicode</h3>
 <p>Usa <code>\n</code> per andare a capo, <code>\t</code> per tab, <code>\"</code> per virgolette. <code>ord("A")</code> → 65; <code>chr(65)</code> → <code>"A"</code>.</p>
 <div class="box info"><b>Nota</b>Le stringhe sono <b>immutabili</b>: i metodi restituiscono una nuova stringa, quindi salva il risultato.</div>
+<h2 id="s14">Esempi completi dalle slide</h2>
+<p>Gli esempi delle slide mettono insieme assegnazioni, conversioni e formattazione. Il programma seguente trasforma un numero di centesimi in dollari e centesimi: <code>//</code> calcola le unità intere, mentre <code>%</code> conserva il resto. È un modello utile ogni volta che una quantità deve essere separata in unità maggiori e minori.</p>
+<div class="code"><button class="copy">Copia</button><pre><code>centesimi = int(input("Centesimi: "))
+dollari = centesimi // 100
+resto = centesimi % 100
+print(f"{dollari} dollari e {resto:02d} centesimi")</code></pre></div>
+<p>Per confrontare i risultati non è necessario concatenare manualmente molte stringhe: una <b>f-string</b> inserisce le espressioni tra parentesi graffe e permette di scegliere il formato. <code>:.2f</code> mostra due cifre decimali, mentre <code>:02d</code> aggiunge uno zero davanti agli interi più corti.</p>
+<div class="code"><button class="copy">Copia</button><pre><code>raggio = 3.5
+area = 3.141592653589793 * raggio ** 2
+print(f"Area del cerchio: {area:.2f}")</code></pre></div>
+<p>Ricorda la distinzione tra nome e valore: <code>taxRate</code> e <code>taxrate</code> sono variabili diverse. Un errore di maiuscole/minuscole può quindi lasciare invariato un valore e rendere il risultato apparentemente misterioso.</p>
 <nav class="pager" aria-label="Pagine"><a class="prev" href="step1-3.html"><small>Precedente</small>Step 1–3: Capire e pianificare</a><a class="next" href="step4-controllo.html"><small>Successivo</small>Step 4 (2): Decisioni e cicli</a></nav></main><aside id="toc" aria-label="In questa pagina"><b>In questa pagina</b><a class="" href="#s1">4.1 Variabili e tipi</a><a class="" href="#s2">4.2 Funzioni e metodi</a><a class="sub" href="#s3">Built-in e moduli</a><a class="sub" href="#s4">Il punto prima del nome: i metodi</a><a class="" href="#s5">4.3 print()</a><a class="sub" href="#s6">Cifre decimali</a><a class="sub" href="#s7">sep ed end</a><a class="" href="#s8">4.4 input() e conversioni</a><a class="" href="#s9">4.5 Calcoli e funzioni matematiche</a><a class="" href="#s10">4.6 Stringhe</a><a class="sub" href="#s11">Indici e slicing</a><a class="sub" href="#s12">Metodi principali</a><a class="sub" href="#s13">Virgolette, backslash e Unicode</a></aside></div><script src="js/search-index.js"></script><script src="js/app.js"></script></body></html>

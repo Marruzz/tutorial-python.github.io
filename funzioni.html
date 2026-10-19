@@ -106,4 +106,19 @@ def tensName(number):       # &quot;twenty&quot;, &quot;thirty&quot;, ... + digi
 <ul><li>Funzioni brevi (se superano uno schermo, spezzale).</li><li>Traccia l'esecuzione: una riga per step, una colonna per variabile.</li><li>Usa <b>stub</b>: funzioni provvisorie che restituiscono un valore semplice per collaudare presto.</li></ul>
 <h2 id="s13">Sommario</h2>
 <ul><li>Gli argomenti inizializzano le variabili parametro.</li><li><code>return</code> termina e restituisce il risultato.</li><li>I commenti spiegano scopo, parametri e ritorno.</li><li>Le variabili locali non sono visibili altrove.</li></ul>
+<h2 id="s14">Esempi dalle slide: progettare funzioni</h2>
+<p>Una funzione ben progettata riceve dati tramite parametri, calcola un risultato e lo restituisce con <code>return</code>. Per esempio, il volume di una piramide quadrata dipende dall’area della base e dall’altezza; separare il calcolo in una funzione rende il programma facile da riusare e da collaudare.</p>
+<div class="code"><button class="copy">Copia</button><pre><code>def pyramid_volume(height, base_length):
+    base_area = base_length ** 2
+    return base_area * height / 3
+
+print(f"{pyramid_volume(6, 4):.2f}")</code></pre></div>
+<p>Gli argomenti possono essere posizionali, nominali o omessi quando esiste un valore predefinito. Con <code>*args</code> una funzione raccoglie in una tupla tutti gli argomenti posizionali oltre il primo: è utile per funzioni che devono accettare un numero variabile di valori.</p>
+<div class="code"><button class="copy">Copia</button><pre><code>def mostra(primo, *altri):
+    print("Primo:", primo)
+    for elemento in altri:
+        print("Altro:", elemento)
+
+mostra("Hello", "Welcome", "to", "Politecnico")</code></pre></div>
+<p>Quando una funzione legge input, valida il valore nello stesso punto in cui lo acquisisce. In questo modo il resto del programma può assumere che il dato sia corretto e si riduce la duplicazione dei controlli.</p>
 <nav class="pager" aria-label="Pagine"><a class="prev" href="step5-errori.html"><small>Precedente</small>Step 5: Prove ed errori</a><a class="next" href="liste.html"><small>Successivo</small>Liste, tuple e tabelle (P6)</a></nav></main><aside id="toc" aria-label="In questa pagina"><b>In questa pagina</b><a class="" href="#s1">Funzioni come scatole nere</a><a class="" href="#s2">Definire e collaudare</a><a class="" href="#s3">Passaggio dei parametri</a><a class="sub" href="#s4">Documentare con docstring</a><a class="sub" href="#s5">Posizionali, nominali, default, *args</a><a class="" href="#s6">Valori restituiti</a><a class="sub" href="#s7">Implementare una funzione: i passi</a><a class="" href="#s8">Funzioni senza valore di ritorno</a><a class="" href="#s9">La funzione main</a><a class="" href="#s10">Funzioni riutilizzabili</a><a class="" href="#s11">Ambito di visibilità (scope)</a><a class="" href="#s12">Raffinamenti successivi</a><a class="" href="#s13">Sommario</a></aside></div><script src="js/search-index.js"></script><script src="js/app.js"></script></body></html>

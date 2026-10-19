@@ -108,4 +108,22 @@ while risposta == &quot;s&quot; and punti &lt; 21:
     if punti &lt; 21:
         risposta = input(&quot;Un&#x27;altra carta? (s/n) &quot;)
 print(&quot;Sballato!&quot; if punti &gt; 21 else f&quot;Ti fermi a {punti}&quot;)</code></pre></div>
+<h2 id="s14">Altri problemi guidati</h2>
+<p>Una decisione diventa più leggibile quando separi validazione, calcolo e stampa. Nell’esempio dell’ascensore il caso speciale del piano 13 viene controllato prima dell’intervallo generale: l’ordine dei rami è importante perché Python esegue soltanto il primo ramo vero.</p>
+<div class="code"><button class="copy">Copia</button><pre><code>piano = int(input("Piano: "))
+if piano == 13:
+    print("Il piano 13 non esiste: usa il 12")
+elif piano &lt;= 0 or piano &gt; 20:
+    print("Piano non valido")
+else:
+    print("Destinazione:", piano)</code></pre></div>
+<p>Un ciclo <code>while</code> è adatto quando non conosci in anticipo il numero di ripetizioni. Il programma dell’investimento aggiorna il saldo e il contatore finché non raggiunge l’obiettivo; ogni giro deve modificare almeno una variabile presente nella condizione, altrimenti il ciclo non termina.</p>
+<div class="code"><button class="copy">Copia</button><pre><code>obiettivo = 2000
+saldo = 1000
+anni = 0
+while saldo &lt; obiettivo:
+    saldo *= 1.05
+    anni += 1
+print(anni, saldo)</code></pre></div>
+<p>Per un dato di fine usa una <b>sentinella</b> che non possa essere confusa con un dato valido, come <code>-1</code> per terminare l’inserimento dei voti. Prima di dividere, controlla sempre che il conteggio sia maggiore di zero.</p>
 <nav class="pager" aria-label="Pagine"><a class="prev" href="step4-basi.html"><small>Precedente</small>Step 4 (1): Basi del codice</a><a class="next" href="step5-errori.html"><small>Successivo</small>Step 5: Prove ed errori</a></nav></main><aside id="toc" aria-label="In questa pagina"><b>In questa pagina</b><a class="" href="#s1">4.7 Decisioni: if, else, elif</a><a class="" href="#s2">4.8 Condizioni: and, or, not</a><a class="" href="#s3">4.9 Controllare i dati di input()</a><a class="" href="#s4">4.10 I quaderni: tutto insieme</a><a class="" href="#s5">4.11 Cicli while</a><a class="" href="#s6">4.12 for, range(), enumerate()</a><a class="" href="#s7">4.13 Richiedere di nuovo un dato</a><a class="" href="#s8">4.14 Somma, conteggio, media, sentinelle</a><a class="" href="#s9">4.15 Ricerca, massimo, minimo, break, continue</a><a class="" href="#s10">4.16 Elaborare stringhe con i cicli</a><a class="" href="#s11">4.17 Cicli annidati</a><a class="" href="#s12">4.18 Numeri casuali e Monte Carlo</a><a class="" href="#s13">4.19 Esempio finale: BlackJack semplificato</a></aside></div><script src="js/search-index.js"></script><script src="js/app.js"></script></body></html>

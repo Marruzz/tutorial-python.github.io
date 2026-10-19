@@ -99,4 +99,16 @@ for term in sorted(index):
 from tabulardata import readData, printReport
 import tabulardata
 tabulardata.printReport(salesData)</code></pre></div>
+<h2 id="s9">Esempi guidati: dati senza duplicati e record</h2>
+<p>Un <code>set</code> è la scelta naturale quando l’ordine non conta e vuoi sapere quali elementi distinti compaiono. Convertire una sequenza in un insieme elimina i duplicati; applicare <code>sorted</code> solo alla stampa produce un ordine leggibile senza modificare la natura non ordinata del set.</p>
+<div class="code"><button class="copy">Copia</button><pre><code>testo = "la rana salta la rana nuota"
+parole = set(testo.split())
+print(sorted(parole))
+print("parole uniche:", len(parole))</code></pre></div>
+<p>Un dizionario rappresenta invece una relazione chiave-valore. Il metodo <code>get</code> permette di fornire un valore iniziale quando la chiave non esiste: questo rende semplice contare frequenze senza dover controllare ogni volta la presenza della parola.</p>
+<div class="code"><button class="copy">Copia</button><pre><code>frequenze = {}
+for parola in "blu rosso blu verde blu".split():
+    frequenze[parola] = frequenze.get(parola, 0) + 1
+print(frequenze)</code></pre></div>
+<p>Per ordinare record complessi usa <code>key</code>. La chiave può essere una funzione <code>lambda</code> che estrae il campo da confrontare; con una tupla puoi combinare più criteri, per esempio voto decrescente e nome crescente.</p>
 <nav class="pager" aria-label="Pagine"><a class="prev" href="liste.html"><small>Precedente</small>Liste, tuple e tabelle (P6)</a><a class="next" href="file-eccezioni.html"><small>Successivo</small>File ed eccezioni (P7)</a></nav></main><aside id="toc" aria-label="In questa pagina"><b>In questa pagina</b><a class="" href="#s1">Insiemi (set)</a><a class="sub" href="#s2">Esempi: parole uniche e controllo ortografico</a><a class="" href="#s3">Dizionari</a><a class="" href="#s4">Dizionari come record</a><a class="sub" href="#s5">Da CSV a lista di dizionari</a><a class="" href="#s6">Ordinamenti avanzati</a><a class="" href="#s7">Strutture complesse</a><a class="" href="#s8">Moduli</a></aside></div><script src="js/search-index.js"></script><script src="js/app.js"></script></body></html>
