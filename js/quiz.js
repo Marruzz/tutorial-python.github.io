@@ -52,9 +52,9 @@ const topics = [
 ];
 
 const prompts = [
-  name => `Che cosa significa ${name} in Python o nell’architettura dei calcolatori?`,
-  name => `Come si usa ${name}? Indica la regola fondamentale da ricordare.`,
-  name => `Quale errore o vantaggio è collegato a ${name}? Spiega brevemente.`
+  name => `Che cosa si intende per ${name} in Python o nell’architettura dei calcolatori?`,
+  name => `Come funziona ${name}? Illustra la regola o il principio fondamentale.`,
+  name => `Quali sono le caratteristiche, i vantaggi o le criticità tipiche associate a ${name}?`
 ];
 
 const QUIZ = topics.flatMap(([name, answer]) => prompts.map((makeQuestion, variant) => ({

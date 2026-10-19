@@ -1,21 +1,187 @@
-<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Step 1–3: Capire e pianificare · Tutorial Python</title><meta name="color-scheme" content="light dark"><script>try{if(localStorage.t==="dark"||(!localStorage.t&&matchMedia("(prefers-color-scheme:dark)").matches))document.documentElement.classList.add("dark")}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%99%9B%3C/text%3E%3C/svg%3E"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=JetBrains+Mono:wght@400;500&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="css/theme.css"></head><body><a class="skip" href="#main">Vai al contenuto</a><div id="bar"></div><header class="top"><button id="menu" aria-label="Apri il menu" aria-expanded="false">☰</button><a class="logo" href="index.html"><i>♛</i>Tutorial Python</a><input id="q" type="search" placeholder="Cerca nel tutorial…  ( / )" autocomplete="off" aria-label="Cerca nel tutorial"><button id="theme" aria-label="Cambia tema"><span class="sun">☀</span><span class="moon">☾</span></button></header><div id="res" role="listbox"></div><div id="ov"></div><div class="wrap"><nav id="side" aria-label="Indice del tutorial"><a href="index.html"><span>🏠</span>Home</a><div class="g">Metodo</div><a href="step1-3.html" class="on" aria-current="page"><span>🧭</span>Step 1–3: Capire e pianificare</a><a href="step5-errori.html"><span>🐞</span>Step 5: Prove ed errori</a><div class="g">Python base</div><a href="step4-basi.html"><span>🧱</span>Step 4 (1): Basi del codice</a><a href="step4-controllo.html"><span>🔁</span>Step 4 (2): Decisioni e cicli</a><div class="g">Programmazione avanzata</div><a href="funzioni.html"><span>⚙️</span>Funzioni (P5)</a><a href="liste.html"><span>📚</span>Liste, tuple e tabelle (P6)</a><a href="insiemi-dizionari.html"><span>🗂️</span>Insiemi e dizionari (P8)</a><a href="file-eccezioni.html"><span>📄</span>File ed eccezioni (P7)</a><div class="g">Riferimento</div><a href="formulario.html"><span>📖</span>Formulario</a><a href="glossario.html"><span>🔤</span>Glossario e quiz</a><div class="g">Strumenti</div><a href="compilatore.html"><span>▶️</span>Compilatore Python online</a></nav><main id="main" class="pg"><header class="hero"><span class="crest" aria-hidden="true">🧭</span><div><div class="kick">Metodo</div><h1>Step 1–3: Capire e pianificare</h1><p class="lede">Dal testo del problema alla scelta degli strumenti.</p></div></header>
-<h2 id="s1">Step 1: Cosa chiede il problema?</h2>
-<p>Leggo e sottolineo le parole chiave. Uso <b>rettangoli</b> per le variabili e <u>sottolineo</u> le azioni. Capisco anche cosa devo mostrare (<code>print</code>), cosa deve scrivere l'utente (<code>input</code>) e cosa arriva da variabili o file.</p>
-<h3 id="s2">Prima capisco, poi programmo</h3>
-<p>Se il problema non è chiaro a parole, il codice non lo renderà più chiaro. Programmare significa progettare passaggi precisi, scriverli e verificarli.</p>
-<h3 id="s3">Input, elaborazione, output</h3>
-<div class="tw"><table><thead><tr><th>Momento</th><th>Esempio: conto della pizza</th></tr></thead><tbody><tr><td>Input</td><td>Prezzo di una pizza e numero di pizze.</td></tr><tr><td>Elaborazione</td><td>Moltiplico prezzo per quantità.</td></tr><tr><td>Output</td><td>Mostro il totale da pagare.</td></tr></tbody></table></div>
-<p>Il <b>file sorgente</b> è un file di testo con istruzioni Python; l'ambiente lo traduce in una forma eseguibile dalla sua macchina virtuale.</p>
-<h3 id="s4">L'esempio dei quaderni</h3>
-<blockquote>Un negozio vende quaderni. Chiedi il prezzo di un quaderno e quanti ne vuole comprare l'utente. Se compra almeno 5 quaderni, applica uno sconto del 10%. Mostra quanto deve pagare.</blockquote>
-<div class="tw"><table><thead><tr><th>Domanda</th><th>Risposta</th></tr></thead><tbody><tr><td>Cosa devo chiedere?</td><td>Prezzo e quantità.</td></tr><tr><td>Cosa so già?</td><td>Soglia di 5 quaderni e sconto del 10%.</td></tr><tr><td>Cosa devo calcolare?</td><td>Totale iniziale, eventuale sconto, totale finale.</td></tr><tr><td>Cosa devo mostrare?</td><td>Il totale da pagare.</td></tr><tr><td>Quali dati non hanno senso?</td><td>Prezzo o quantità negativi.</td></tr></tbody></table></div>
-<div class="box warn"><b>Attenzione</b>“Almeno 5” comprende anche 5: cambia il confronto (&gt;= e non &gt;). Se il testo non dice se si possono comprare zero quaderni, scegli una regola esplicita (qui: sì, totale 0) senza aggiungere regole nascoste.</div>
-<h2 id="s5">Step 2: Mappa mentale</h2>
-<h3 id="s6">Prima risolvo un caso a mano</h3>
-<p>Quaderno da 2 €, quantità 5: 2 × 5 = 10 €; la soglia è raggiunta, sconto = 10 × 10 / 100 = 1 €; pago 9 €. Se non riesco a mano, torno al testo.</p>
-<h3 id="s7">Algoritmo e pseudocodice</h3>
-<p>Un algoritmo è una sequenza di passi precisi, eseguibili, che arriva a una fine, come una ricetta.</p>
-<div class="code"><button class="copy">Copia</button><pre><code>Chiedi il prezzo di un quaderno
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Step 1–3: Capire e pianificare · Tutorial Python</title>
+    <meta name="color-scheme" content="light dark" />
+    <script>
+      try {
+        if (
+          localStorage.t === "dark" ||
+          (!localStorage.t && matchMedia("(prefers-color-scheme:dark)").matches)
+        )
+          document.documentElement.classList.add("dark");
+      } catch (e) {}
+    </script>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%99%9B%3C/text%3E%3C/svg%3E"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=JetBrains+Mono:wght@400;500&family=Source+Sans+3:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/theme.css" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Vai al contenuto</a>
+    <div id="bar"></div>
+    <header class="top">
+      <button id="menu" aria-label="Apri il menu" aria-expanded="false">
+        ☰</button
+      ><a class="logo" href="index.html"><i>♛</i>Tutorial Python</a
+      ><input
+        id="q"
+        type="search"
+        placeholder="Cerca nel tutorial…  ( / )"
+        autocomplete="off"
+        aria-label="Cerca nel tutorial"
+      /><button id="theme" aria-label="Cambia tema">
+        <span class="sun">☀</span><span class="moon">☾</span>
+      </button>
+    </header>
+    <div id="res" role="listbox"></div>
+    <div id="ov"></div>
+    <div class="wrap">
+      <nav id="side" aria-label="Indice del tutorial">
+        <a href="index.html"><span>🏠</span>Home</a>
+        <div class="g">Metodo</div>
+        <a href="step1-3.html" class="on" aria-current="page"
+          ><span>🧭</span>Step 1–3: Capire e pianificare</a
+        ><a href="step5-errori.html"><span>🐞</span>Step 5: Prove ed errori</a>
+        <div class="g">Python base</div>
+        <a href="step4-basi.html"><span>🧱</span>Step 4 (1): Basi del codice</a
+        ><a href="step4-controllo.html"
+          ><span>🔁</span>Step 4 (2): Decisioni e cicli</a
+        >
+        <div class="g">Programmazione avanzata</div>
+        <a href="funzioni.html"><span>⚙️</span>Funzioni (P5)</a
+        ><a href="liste.html"><span>📚</span>Liste, tuple e tabelle (P6)</a
+        ><a href="insiemi-dizionari.html"
+          ><span>🗂️</span>Insiemi e dizionari (P8)</a
+        ><a href="file-eccezioni.html"><span>📄</span>File ed eccezioni (P7)</a>
+        <div class="g">Riferimento</div>
+        <a href="formulario.html"><span>📖</span>Formulario</a
+        ><a href="glossario.html"><span>🔤</span>Glossario e quiz</a>
+        <div class="g">Strumenti</div>
+        <a href="compilatore.html"><span>▶️</span>Compilatore Python online</a>
+      </nav>
+      <main id="main" class="pg">
+        <header class="hero">
+          <span class="crest" aria-hidden="true">🧭</span>
+          <div>
+            <div class="kick">Metodo</div>
+            <h1>Step 1–3: Capire e pianificare</h1>
+            <p class="lede">
+              Dal testo del problema alla scelta degli strumenti.
+            </p>
+          </div>
+        </header>
+        <h2 id="s1">Step 1: Cosa chiede il problema?</h2>
+        <p>
+          Leggo e sottolineo le parole chiave. Uso <b>rettangoli</b> per le
+          variabili e <u>sottolineo</u> le azioni. Capisco anche cosa devo
+          mostrare (<code>print</code>), cosa deve scrivere l'utente
+          (<code>input</code>) e cosa arriva da variabili o file.
+        </p>
+        <h3 id="s2">Prima capisco, poi programmo</h3>
+        <p>
+          Se il problema non è chiaro a parole, il codice non lo renderà più
+          chiaro. Programmare significa progettare passaggi precisi, scriverli e
+          verificarli.
+        </p>
+        <h3 id="s3">Input, elaborazione, output</h3>
+        <div class="tw">
+          <table>
+            <thead>
+              <tr>
+                <th>Momento</th>
+                <th>Esempio: conto della pizza</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Input</td>
+                <td>Prezzo di una pizza e numero di pizze.</td>
+              </tr>
+              <tr>
+                <td>Elaborazione</td>
+                <td>Moltiplico prezzo per quantità.</td>
+              </tr>
+              <tr>
+                <td>Output</td>
+                <td>Mostro il totale da pagare.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          Il <b>file sorgente</b> è un file di testo con istruzioni Python;
+          l'ambiente lo traduce in una forma eseguibile dalla sua macchina
+          virtuale.
+        </p>
+        <h3 id="s4">L'esempio dei quaderni</h3>
+        <blockquote>
+          Un negozio vende quaderni. Chiedi il prezzo di un quaderno e quanti ne
+          vuole comprare l'utente. Se compra almeno 5 quaderni, applica uno
+          sconto del 10%. Mostra quanto deve pagare.
+        </blockquote>
+        <div class="tw">
+          <table>
+            <thead>
+              <tr>
+                <th>Domanda</th>
+                <th>Risposta</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Cosa devo chiedere?</td>
+                <td>Prezzo e quantità.</td>
+              </tr>
+              <tr>
+                <td>Cosa so già?</td>
+                <td>Soglia di 5 quaderni e sconto del 10%.</td>
+              </tr>
+              <tr>
+                <td>Cosa devo calcolare?</td>
+                <td>Totale iniziale, eventuale sconto, totale finale.</td>
+              </tr>
+              <tr>
+                <td>Cosa devo mostrare?</td>
+                <td>Il totale da pagare.</td>
+              </tr>
+              <tr>
+                <td>Quali dati non hanno senso?</td>
+                <td>Prezzo o quantità negativi.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="box warn">
+          <b>Attenzione</b>“Almeno 5” comprende anche 5: cambia il confronto
+          (&gt;= e non &gt;). Se il testo non dice se si possono comprare zero
+          quaderni, scegli una regola esplicita (qui: sì, totale 0) senza
+          aggiungere regole nascoste.
+        </div>
+        <h2 id="s5">Step 2: Mappa mentale</h2>
+        <h3 id="s6">Prima risolvo un caso a mano</h3>
+        <p>
+          Quaderno da 2 €, quantità 5: 2 × 5 = 10 €; la soglia è raggiunta,
+          sconto = 10 × 10 / 100 = 1 €; pago 9 €. Se non riesco a mano, torno al
+          testo.
+        </p>
+        <h3 id="s7">Algoritmo e pseudocodice</h3>
+        <p>
+          Un algoritmo è una sequenza di passi precisi, eseguibili, che arriva a
+          una fine, come una ricetta.
+        </p>
+        <div class="code">
+          <button class="copy">Copia</button>
+          <pre><code>Chiedi il prezzo di un quaderno
 Chiedi il numero di quaderni
 Se prezzo o quantità sono negativi:
     Mostra un messaggio di errore
@@ -24,20 +190,180 @@ Altrimenti:
     Se quantità è almeno 5:
         Calcola sconto = totale × 10 / 100
         Togli lo sconto dal totale
-    Mostra il totale</code></pre></div>
-<h3 id="s8">Diagramma di flusso</h3>
-<div class="tw"><table><thead><tr><th>Figura</th><th>Significato</th></tr></thead><tbody><tr><td>Ovale</td><td>Inizio o fine</td></tr><tr><td>Parallelogramma</td><td>Leggo o mostro dati</td></tr><tr><td>Rettangolo</td><td>Eseguo un calcolo</td></tr><tr><td>Rombo</td><td>Domanda con due uscite (vero/falso)</td></tr></tbody></table></div>
-<p>Per i quaderni: inizio → leggo i dati → controllo validità (se no, errore e fine) → calcolo il totale → “quantità &gt;= 5?” → sì: sconto / no: salto → riunisco i percorsi → mostro il totale.</p>
-<h3 id="s9">Preparo le prove</h3>
-<div class="tw"><table><thead><tr><th>Prezzo</th><th>Quantità</th><th>Risultato atteso</th></tr></thead><tbody><tr><td>2</td><td>4</td><td>8.00 € — niente sconto</td></tr><tr><td>2</td><td>5</td><td>9.00 € — soglia inclusa</td></tr><tr><td>2</td><td>6</td><td>10.80 € — sconto applicato</td></tr><tr><td>2</td><td>0</td><td>0.00 €</td></tr><tr><td>-2</td><td>5</td><td>Messaggio di dato non valido</td></tr></tbody></table></div>
-<div class="box tip"><b>Consiglio</b>Prova sempre <b>sotto</b> la soglia, <b>esattamente sulla</b> soglia e <b>sopra</b>: i confini sono dove si sbaglia di più.</div>
-<h2 id="s10">Step 3: Cerco le funzioni</h2>
-<p>Cerco nel formulario le funzioni che servono e le adatto. Meglio farlo su un foglio, per cancellare e disegnare. Se non ci sono, provo prima a combinare quelle che conosco.</p>
-<h3 id="s11">Scelgo gli strumenti</h3>
-<div class="tw"><table><thead><tr><th>Nel problema leggo…</th><th>Probabilmente mi serve…</th></tr></thead><tbody><tr><td>Chiedi un dato</td><td><code>input()</code>, eventualmente <code>int()</code>/<code>float()</code></td></tr><tr><td>Mostra un risultato</td><td><code>print()</code>, meglio con una f-string</td></tr><tr><td>Se, altrimenti, almeno</td><td><code>if</code>, <code>else</code>, un confronto</td></tr><tr><td>Ripeti finché…</td><td>ciclo <code>while</code></td></tr><tr><td>Ripeti un numero noto di volte</td><td>ciclo <code>for</code> con <code>range()</code></td></tr><tr><td>Per ogni carattere</td><td><code>for</code> sulla stringa</td></tr></tbody></table></div>
-<p>Per i quaderni: <code>prezzo</code> float, <code>quantita</code> int, <code>totale</code> float, più le costanti <code>SOGLIA_SCONTO</code> e <code>PERCENTUALE_SCONTO</code>.</p>
-<h3 id="s12">Checklist prima di aprire Python</h3>
-<ul class="check"><li>So spiegare cosa ottenere senza parlare di Python.</li><li>Ho separato input, calcoli e risultato.</li><li>Ho risolto almeno un esempio a mano.</li><li>Ho scritto i passaggi nell'ordine corretto.</li><li>Ho individuato decisioni, ripetizioni e dati non validi.</li><li>Ho preparato prove con risultato atteso.</li></ul>
-<h3 id="s13">Preparo l'ambiente</h3>
-<p>VS Code è l'editor, Python è ciò che esegue: non sono la stessa cosa. Crea una cartella, aprila (<i>Open Folder</i>), crea un file <code>.py</code> (es. <code>quaderni.py</code>) con l'estensione, scegli l'interprete, salva ed esegui: i messaggi e gli input compaiono nel terminale. In alternativa prova subito il codice nel <a href="compilatore.html">compilatore online</a>.</p>
-<nav class="pager" aria-label="Pagine"><a class="next" href="step4-basi.html"><small>Successivo</small>Step 4 (1): Basi del codice</a></nav></main><aside id="toc" aria-label="In questa pagina"><b>In questa pagina</b><a class="" href="#s1">Step 1: Cosa chiede il problema?</a><a class="sub" href="#s2">Prima capisco, poi programmo</a><a class="sub" href="#s3">Input, elaborazione, output</a><a class="sub" href="#s4">L'esempio dei quaderni</a><a class="" href="#s5">Step 2: Mappa mentale</a><a class="sub" href="#s6">Prima risolvo un caso a mano</a><a class="sub" href="#s7">Algoritmo e pseudocodice</a><a class="sub" href="#s8">Diagramma di flusso</a><a class="sub" href="#s9">Preparo le prove</a><a class="" href="#s10">Step 3: Cerco le funzioni</a><a class="sub" href="#s11">Scelgo gli strumenti</a><a class="sub" href="#s12">Checklist prima di aprire Python</a><a class="sub" href="#s13">Preparo l'ambiente</a></aside></div><script src="js/search-index.js"></script><script src="js/app.js"></script></body></html>
+    Mostra il totale</code></pre>
+        </div>
+        <h3 id="s8">Diagramma di flusso</h3>
+        <div class="tw">
+          <table>
+            <thead>
+              <tr>
+                <th>Figura</th>
+                <th>Significato</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Ovale</td>
+                <td>Inizio o fine</td>
+              </tr>
+              <tr>
+                <td>Parallelogramma</td>
+                <td>Leggo o mostro dati</td>
+              </tr>
+              <tr>
+                <td>Rettangolo</td>
+                <td>Eseguo un calcolo</td>
+              </tr>
+              <tr>
+                <td>Rombo</td>
+                <td>Domanda con due uscite (vero/falso)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          Per i quaderni: inizio → leggo i dati → controllo validità (se no,
+          errore e fine) → calcolo il totale → “quantità &gt;= 5?” → sì: sconto
+          / no: salto → riunisco i percorsi → mostro il totale.
+        </p>
+        <h3 id="s9">Preparo le prove</h3>
+        <div class="tw">
+          <table>
+            <thead>
+              <tr>
+                <th>Prezzo</th>
+                <th>Quantità</th>
+                <th>Risultato atteso</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>2</td>
+                <td>4</td>
+                <td>8.00 € — niente sconto</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>5</td>
+                <td>9.00 € — soglia inclusa</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>6</td>
+                <td>10.80 € — sconto applicato</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>0</td>
+                <td>0.00 €</td>
+              </tr>
+              <tr>
+                <td>-2</td>
+                <td>5</td>
+                <td>Messaggio di dato non valido</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="box tip">
+          <b>Consiglio</b>Prova sempre <b>sotto</b> la soglia,
+          <b>esattamente sulla</b> soglia e <b>sopra</b>: i confini sono dove si
+          sbaglia di più.
+        </div>
+        <h2 id="s10">Step 3: Cerco le funzioni</h2>
+        <p>
+          Cerco nel formulario le funzioni che servono e le adatto. Meglio farlo
+          su un foglio, per cancellare e disegnare. Se non ci sono, provo prima
+          a combinare quelle che conosco.
+        </p>
+        <h3 id="s11">Scelgo gli strumenti</h3>
+        <div class="tw">
+          <table>
+            <thead>
+              <tr>
+                <th>Nel problema leggo…</th>
+                <th>Probabilmente mi serve…</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Chiedi un dato</td>
+                <td>
+                  <code>input()</code>, eventualmente <code>int()</code>/<code
+                    >float()</code
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>Mostra un risultato</td>
+                <td><code>print()</code>, meglio con una f-string</td>
+              </tr>
+              <tr>
+                <td>Se, altrimenti, almeno</td>
+                <td><code>if</code>, <code>else</code>, un confronto</td>
+              </tr>
+              <tr>
+                <td>Ripeti finché…</td>
+                <td>ciclo <code>while</code></td>
+              </tr>
+              <tr>
+                <td>Ripeti un numero noto di volte</td>
+                <td>ciclo <code>for</code> con <code>range()</code></td>
+              </tr>
+              <tr>
+                <td>Per ogni carattere</td>
+                <td><code>for</code> sulla stringa</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          Per i quaderni: <code>prezzo</code> float, <code>quantita</code> int,
+          <code>totale</code> float, più le costanti
+          <code>SOGLIA_SCONTO</code> e <code>PERCENTUALE_SCONTO</code>.
+        </p>
+        <h3 id="s12">Checklist prima di aprire Python</h3>
+        <ul class="check">
+          <li>So spiegare cosa ottenere senza parlare di Python.</li>
+          <li>Ho separato input, calcoli e risultato.</li>
+          <li>Ho risolto almeno un esempio a mano.</li>
+          <li>Ho scritto i passaggi nell'ordine corretto.</li>
+          <li>Ho individuato decisioni, ripetizioni e dati non validi.</li>
+          <li>Ho preparato prove con risultato atteso.</li>
+        </ul>
+        <h3 id="s13">Preparo l'ambiente</h3>
+        <p>
+          VS Code è l'editor, Python è ciò che esegue: non sono la stessa cosa.
+          Crea una cartella, aprila (<i>Open Folder</i>), crea un file
+          <code>.py</code> (es. <code>quaderni.py</code>) con l'estensione,
+          scegli l'interprete, salva ed esegui: i messaggi e gli input compaiono
+          nel terminale. In alternativa prova subito il codice nel
+          <a href="compilatore.html">compilatore online</a>.
+        </p>
+        <nav class="pager" aria-label="Pagine">
+          <a class="next" href="step4-basi.html"
+            ><small>Successivo</small>Step 4 (1): Basi del codice</a
+          >
+        </nav>
+      </main>
+      <aside id="toc" aria-label="In questa pagina">
+        <b>In questa pagina</b
+        ><a class="" href="#s1">Step 1: Cosa chiede il problema?</a
+        ><a class="sub" href="#s2">Prima capisco, poi programmo</a
+        ><a class="sub" href="#s3">Input, elaborazione, output</a
+        ><a class="sub" href="#s4">L'esempio dei quaderni</a
+        ><a class="" href="#s5">Step 2: Mappa mentale</a
+        ><a class="sub" href="#s6">Prima risolvo un caso a mano</a
+        ><a class="sub" href="#s7">Algoritmo e pseudocodice</a
+        ><a class="sub" href="#s8">Diagramma di flusso</a
+        ><a class="sub" href="#s9">Preparo le prove</a
+        ><a class="" href="#s10">Step 3: Cerco le funzioni</a
+        ><a class="sub" href="#s11">Scelgo gli strumenti</a
+        ><a class="sub" href="#s12">Checklist prima di aprire Python</a
+        ><a class="sub" href="#s13">Preparo l'ambiente</a>
+      </aside>
+    </div>
+    <script src="js/search-index.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

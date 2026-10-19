@@ -1,61 +1,431 @@
-<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Step 4 (1): Basi del codice · Tutorial Python</title><meta name="color-scheme" content="light dark"><script>try{if(localStorage.t==="dark"||(!localStorage.t&&matchMedia("(prefers-color-scheme:dark)").matches))document.documentElement.classList.add("dark")}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%99%9B%3C/text%3E%3C/svg%3E"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=JetBrains+Mono:wght@400;500&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="css/theme.css"></head><body><a class="skip" href="#main">Vai al contenuto</a><div id="bar"></div><header class="top"><button id="menu" aria-label="Apri il menu" aria-expanded="false">☰</button><a class="logo" href="index.html"><i>♛</i>Tutorial Python</a><input id="q" type="search" placeholder="Cerca nel tutorial…  ( / )" autocomplete="off" aria-label="Cerca nel tutorial"><button id="theme" aria-label="Cambia tema"><span class="sun">☀</span><span class="moon">☾</span></button></header><div id="res" role="listbox"></div><div id="ov"></div><div class="wrap"><nav id="side" aria-label="Indice del tutorial"><a href="index.html"><span>🏠</span>Home</a><div class="g">Metodo</div><a href="step1-3.html"><span>🧭</span>Step 1–3: Capire e pianificare</a><a href="step5-errori.html"><span>🐞</span>Step 5: Prove ed errori</a><div class="g">Python base</div><a href="step4-basi.html" class="on" aria-current="page"><span>🧱</span>Step 4 (1): Basi del codice</a><a href="step4-controllo.html"><span>🔁</span>Step 4 (2): Decisioni e cicli</a><div class="g">Programmazione avanzata</div><a href="funzioni.html"><span>⚙️</span>Funzioni (P5)</a><a href="liste.html"><span>📚</span>Liste, tuple e tabelle (P6)</a><a href="insiemi-dizionari.html"><span>🗂️</span>Insiemi e dizionari (P8)</a><a href="file-eccezioni.html"><span>📄</span>File ed eccezioni (P7)</a><div class="g">Riferimento</div><a href="formulario.html"><span>📖</span>Formulario</a><a href="glossario.html"><span>🔤</span>Glossario e quiz</a><div class="g">Strumenti</div><a href="compilatore.html"><span>▶️</span>Compilatore Python online</a></nav><main id="main" class="pg"><header class="hero"><span class="crest" aria-hidden="true">🧱</span><div><div class="kick">Python base</div><h1>Step 4 (1): Basi del codice</h1><p class="lede">Variabili, funzioni, print, input, calcoli, stringhe.</p></div></header>
-<h2 id="s1">4.1 Variabili e tipi</h2>
-<p>Usa nomi autoesplicativi (<code>velocita</code>, non <code>a</code>), senza accenti e senza spazi. Per più parole: <b>camelCase</b> o <b>snake_case</b>.</p>
-<p>Con <code>=</code> si <b>assegna</b>: Python calcola il lato destro e poi lo associa al nome a sinistra.</p>
-<div class="code"><button class="copy">Copia</button><pre><code>quantita = 4
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Step 4 (1): Basi del codice · Tutorial Python</title>
+    <meta name="color-scheme" content="light dark" />
+    <script>
+      try {
+        if (
+          localStorage.t === "dark" ||
+          (!localStorage.t && matchMedia("(prefers-color-scheme:dark)").matches)
+        )
+          document.documentElement.classList.add("dark");
+      } catch (e) {}
+    </script>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%99%9B%3C/text%3E%3C/svg%3E"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=JetBrains+Mono:wght@400;500&family=Source+Sans+3:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/theme.css" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Vai al contenuto</a>
+    <div id="bar"></div>
+    <header class="top">
+      <button id="menu" aria-label="Apri il menu" aria-expanded="false">
+        ☰</button
+      ><a class="logo" href="index.html"><i>♛</i>Tutorial Python</a
+      ><input
+        id="q"
+        type="search"
+        placeholder="Cerca nel tutorial…  ( / )"
+        autocomplete="off"
+        aria-label="Cerca nel tutorial"
+      /><button id="theme" aria-label="Cambia tema">
+        <span class="sun">☀</span><span class="moon">☾</span>
+      </button>
+    </header>
+    <div id="res" role="listbox"></div>
+    <div id="ov"></div>
+    <div class="wrap">
+      <nav id="side" aria-label="Indice del tutorial">
+        <a href="index.html"><span>🏠</span>Home</a>
+        <div class="g">Metodo</div>
+        <a href="step1-3.html"><span>🧭</span>Step 1–3: Capire e pianificare</a
+        ><a href="step5-errori.html"><span>🐞</span>Step 5: Prove ed errori</a>
+        <div class="g">Python base</div>
+        <a href="step4-basi.html" class="on" aria-current="page"
+          ><span>🧱</span>Step 4 (1): Basi del codice</a
+        ><a href="step4-controllo.html"
+          ><span>🔁</span>Step 4 (2): Decisioni e cicli</a
+        >
+        <div class="g">Programmazione avanzata</div>
+        <a href="funzioni.html"><span>⚙️</span>Funzioni (P5)</a
+        ><a href="liste.html"><span>📚</span>Liste, tuple e tabelle (P6)</a
+        ><a href="insiemi-dizionari.html"
+          ><span>🗂️</span>Insiemi e dizionari (P8)</a
+        ><a href="file-eccezioni.html"><span>📄</span>File ed eccezioni (P7)</a>
+        <div class="g">Riferimento</div>
+        <a href="formulario.html"><span>📖</span>Formulario</a
+        ><a href="glossario.html"><span>🔤</span>Glossario e quiz</a>
+        <div class="g">Strumenti</div>
+        <a href="compilatore.html"><span>▶️</span>Compilatore Python online</a>
+      </nav>
+      <main id="main" class="pg">
+        <header class="hero">
+          <span class="crest" aria-hidden="true">🧱</span>
+          <div>
+            <div class="kick">Python base</div>
+            <h1>Step 4 (1): Basi del codice</h1>
+            <p class="lede">
+              Variabili, funzioni, print, input, calcoli, stringhe.
+            </p>
+          </div>
+        </header>
+        <h2 id="s1">4.1 Variabili e tipi</h2>
+        <p>
+          Usa nomi autoesplicativi (<code>velocita</code>, non <code>a</code>),
+          senza accenti e senza spazi. Per più parole: <b>camelCase</b> o
+          <b>snake_case</b>.
+        </p>
+        <p>
+          Con <code>=</code> si <b>assegna</b>: Python calcola il lato destro e
+          poi lo associa al nome a sinistra.
+        </p>
+        <div class="code">
+          <button class="copy">Copia</button>
+          <pre><code>quantita = 4
 quantita = quantita + 1
-print(quantita)</code></pre></div><div class="out"><span>Output</span><pre>5</pre></div>
-<p><code>quantita += 1</code> è la forma abbreviata; esistono anche <code>-=</code>, <code>*=</code>, <code>/=</code>.</p>
-<div class="tw"><table><thead><tr><th>Tipo</th><th>Cosa rappresenta</th><th>Esempio</th></tr></thead><tbody><tr><td>int</td><td>Intero</td><td><code>quantita = 5</code></td></tr><tr><td>float</td><td>Con decimali</td><td><code>prezzo = 2.50</code></td></tr><tr><td>str</td><td>Testo</td><td><code>codice = "005"</code></td></tr><tr><td>bool</td><td>Vero/falso</td><td><code>disponibile = True</code></td></tr></tbody></table></div>
-<ul><li>Decimali col punto: <code>2.50</code>.</li><li><code>5</code> è numero, <code>"5"</code> è testo.</li><li><code>type(x)</code> mostra il tipo.</li><li>I float hanno precisione limitata.</li><li>Le <b>costanti</b> si scrivono in MAIUSCOLO per convenzione.</li><li>I <b>commenti</b> iniziano con <code>#</code>.</li></ul>
-<div class="box warn"><b>Attenzione</b>Assegna sempre un valore prima di usare una variabile; <code>quantita</code> e <code>Quantita</code> sono nomi diversi; evita di chiamare variabili <code>print</code>, <code>input</code>, <code>str</code>.</div>
-<h2 id="s2">4.2 Funzioni e metodi</h2>
-<p>Una funzione si usa scrivendo il nome e le parentesi; i dati dentro sono gli <b>argomenti</b>.</p>
-<div class="code"><button class="copy">Copia</button><pre><code>numero = abs(-7)
-print(numero)</code></pre></div><div class="out"><span>Output</span><pre>7</pre></div>
-<div class="box warn"><b>Attenzione</b><code>print()</code> mostra ma restituisce <code>None</code>: scrivi <code>somma = 3 + 4</code> e poi <code>print(somma)</code>, non <code>somma = print(3 + 4)</code>.</div>
-<h3 id="s3">Built-in e moduli</h3>
-<p>Le built-in (<code>print</code>, <code>abs</code>) non richiedono import; le altre stanno in moduli: <code>import math</code> poi <code>math.sqrt(9)</code> → <code>3.0</code>.</p>
-<h3 id="s4">Il punto prima del nome: i metodi</h3>
-<p>Un metodo appartiene a un oggetto: <code>testo.upper()</code>. Il punto dice “usa questo strumento su questo dato”.</p>
-<h2 id="s5">4.3 print()</h2>
-<div class="code"><button class="copy">Copia</button><pre><code>print(&quot;Ciao&quot;)
+print(quantita)</code></pre>
+        </div>
+        <div class="out">
+          <span>Output</span>
+          <pre>5</pre>
+        </div>
+        <p>
+          <code>quantita += 1</code> è la forma abbreviata; esistono anche
+          <code>-=</code>, <code>*=</code>, <code>/=</code>.
+        </p>
+        <div class="tw">
+          <table>
+            <thead>
+              <tr>
+                <th>Tipo</th>
+                <th>Cosa rappresenta</th>
+                <th>Esempio</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>int</td>
+                <td>Intero</td>
+                <td><code>quantita = 5</code></td>
+              </tr>
+              <tr>
+                <td>float</td>
+                <td>Con decimali</td>
+                <td><code>prezzo = 2.50</code></td>
+              </tr>
+              <tr>
+                <td>str</td>
+                <td>Testo</td>
+                <td><code>codice = "005"</code></td>
+              </tr>
+              <tr>
+                <td>bool</td>
+                <td>Vero/falso</td>
+                <td><code>disponibile = True</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <ul>
+          <li>Decimali col punto: <code>2.50</code>.</li>
+          <li><code>5</code> è numero, <code>"5"</code> è testo.</li>
+          <li><code>type(x)</code> mostra il tipo.</li>
+          <li>I float hanno precisione limitata.</li>
+          <li>Le <b>costanti</b> si scrivono in MAIUSCOLO per convenzione.</li>
+          <li>I <b>commenti</b> iniziano con <code>#</code>.</li>
+        </ul>
+        <div class="box warn">
+          <b>Attenzione</b>Assegna sempre un valore prima di usare una
+          variabile; <code>quantita</code> e <code>Quantita</code> sono nomi
+          diversi; evita di chiamare variabili <code>print</code>,
+          <code>input</code>, <code>str</code>.
+        </div>
+        <h2 id="s2">4.2 Funzioni e metodi</h2>
+        <p>
+          Una funzione si usa scrivendo il nome e le parentesi; i dati dentro
+          sono gli <b>argomenti</b>.
+        </p>
+        <div class="code">
+          <button class="copy">Copia</button>
+          <pre><code>numero = abs(-7)
+print(numero)</code></pre>
+        </div>
+        <div class="out">
+          <span>Output</span>
+          <pre>7</pre>
+        </div>
+        <div class="box warn">
+          <b>Attenzione</b><code>print()</code> mostra ma restituisce
+          <code>None</code>: scrivi <code>somma = 3 + 4</code> e poi
+          <code>print(somma)</code>, non <code>somma = print(3 + 4)</code>.
+        </div>
+        <h3 id="s3">Built-in e moduli</h3>
+        <p>
+          Le built-in (<code>print</code>, <code>abs</code>) non richiedono
+          import; le altre stanno in moduli: <code>import math</code> poi
+          <code>math.sqrt(9)</code> → <code>3.0</code>.
+        </p>
+        <h3 id="s4">Il punto prima del nome: i metodi</h3>
+        <p>
+          Un metodo appartiene a un oggetto: <code>testo.upper()</code>. Il
+          punto dice “usa questo strumento su questo dato”.
+        </p>
+        <h2 id="s5">4.3 print()</h2>
+        <div class="code">
+          <button class="copy">Copia</button>
+          <pre><code>print(&quot;Ciao&quot;)
 print(&quot;Totale:&quot;, 9)
 totale = 9
-print(f&quot;Totale: {totale:.2f} euro&quot;)</code></pre></div>
-<h3 id="s6">Cifre decimali</h3>
-<div class="tw"><table><thead><tr><th>Codice</th><th>Significato</th></tr></thead><tbody><tr><td><code>:.2f</code></td><td>2 decimali</td></tr><tr><td><code>:8.2f</code></td><td>larghezza 8, 2 decimali</td></tr><tr><td><code>:&lt;10</code> / <code>:^10</code> / <code>:&gt;10</code></td><td>sinistra / centro / destra</td></tr><tr><td><code>:d</code>, <code>:s</code>, <code>:g</code></td><td>intero, stringa, notazione scientifica</td></tr></tbody></table></div>
-<h3 id="s7">sep ed end</h3>
-<div class="code"><button class="copy">Copia</button><pre><code>print(&quot;a&quot;,&quot;b&quot;,&quot;c&quot;,sep=&quot;-&quot;)
+print(f&quot;Totale: {totale:.2f} euro&quot;)</code></pre>
+        </div>
+        <h3 id="s6">Cifre decimali</h3>
+        <div class="tw">
+          <table>
+            <thead>
+              <tr>
+                <th>Codice</th>
+                <th>Significato</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>:.2f</code></td>
+                <td>2 decimali</td>
+              </tr>
+              <tr>
+                <td><code>:8.2f</code></td>
+                <td>larghezza 8, 2 decimali</td>
+              </tr>
+              <tr>
+                <td>
+                  <code>:&lt;10</code> / <code>:^10</code> /
+                  <code>:&gt;10</code>
+                </td>
+                <td>sinistra / centro / destra</td>
+              </tr>
+              <tr>
+                <td><code>:d</code>, <code>:s</code>, <code>:g</code></td>
+                <td>intero, stringa, notazione scientifica</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <h3 id="s7">sep ed end</h3>
+        <div class="code">
+          <button class="copy">Copia</button>
+          <pre><code>print(&quot;a&quot;,&quot;b&quot;,&quot;c&quot;,sep=&quot;-&quot;)
 print(&quot;riga 1&quot;,end=&quot; &quot;)
-print(&quot;riga 2&quot;)</code></pre></div><div class="out"><span>Output</span><pre>a-b-c
-riga 1 riga 2</pre></div>
-<h2 id="s8">4.4 input() e conversioni</h2>
-<p><code>input()</code> restituisce <b>sempre testo</b>. Per i numeri converti con <code>int()</code> o <code>float()</code>.</p>
-<div class="code"><button class="copy">Copia</button><pre><code>prezzo = float(input(&quot;Prezzo: &quot;))
-quantita = int(input(&quot;Quantità: &quot;))</code></pre></div>
-<div class="box warn"><b>Attenzione</b>Se l'utente scrive testo non numerico, <code>int()</code>/<code>float()</code> sollevano <code>ValueError</code> (vedi eccezioni).</div>
-<h2 id="s9">4.5 Calcoli e funzioni matematiche</h2>
-<div class="tw"><table><thead><tr><th>Operatore/funzione</th><th>Significato</th></tr></thead><tbody><tr><td><code>+ - * /</code></td><td>operazioni (la <code>/</code> dà sempre float)</td></tr><tr><td><code>//</code> e <code>%</code></td><td>divisione intera e resto</td></tr><tr><td><code>**</code></td><td>potenza</td></tr><tr><td><code>abs, round, min, max, sum</code></td><td>built-in</td></tr><tr><td><code>math.sqrt, sin, cos, exp, log, floor, ceil, trunc</code></td><td>modulo math</td></tr><tr><td><code>math.isclose(a,b,...)</code></td><td>confronto tra float con tolleranza</td></tr></tbody></table></div>
-<p>Precedenza: parentesi, <code>**</code>, <code>* / // %</code>, <code>+ -</code>.</p>
-<h2 id="s10">4.6 Stringhe</h2>
-<h3 id="s11">Indici e slicing</h3>
-<div class="code"><button class="copy">Copia</button><pre><code>s = &quot;Python&quot;
-print(s[0], s[-1], s[1:4], s[::-1])</code></pre></div><div class="out"><span>Output</span><pre>P n yth nohtyP</pre></div>
-<h3 id="s12">Metodi principali</h3>
-<div class="tw"><table><thead><tr><th>Metodo</th><th>Cosa fa</th></tr></thead><tbody><tr><td><code>lower() / upper()</code></td><td>minuscolo / maiuscolo</td></tr><tr><td><code>strip(), lstrip(), rstrip()</code></td><td>toglie spazi</td></tr><tr><td><code>replace(a,b)</code></td><td>sostituisce</td></tr><tr><td><code>find(x) / index(x)</code></td><td>posizione (-1 / errore)</td></tr><tr><td><code>count(x)</code></td><td>occorrenze</td></tr><tr><td><code>startswith / endswith</code></td><td>inizio/fine</td></tr><tr><td><code>isalpha, isdigit, isalnum, isspace, islower, isupper</code></td><td>controlli</td></tr><tr><td><code>split(sep)</code> / <code>sep.join(lista)</code></td><td>da stringa a lista e viceversa</td></tr><tr><td><code>len(s)</code>, <code>x in s</code></td><td>lunghezza, appartenenza</td></tr></tbody></table></div>
-<h3 id="s13">Virgolette, backslash e Unicode</h3>
-<p>Usa <code>\n</code> per andare a capo, <code>\t</code> per tab, <code>\"</code> per virgolette. <code>ord("A")</code> → 65; <code>chr(65)</code> → <code>"A"</code>.</p>
-<div class="box info"><b>Nota</b>Le stringhe sono <b>immutabili</b>: i metodi restituiscono una nuova stringa, quindi salva il risultato.</div>
-<h2 id="s14">Esempi completi dalle slide</h2>
-<p>Gli esempi delle slide mettono insieme assegnazioni, conversioni e formattazione. Il programma seguente trasforma un numero di centesimi in dollari e centesimi: <code>//</code> calcola le unità intere, mentre <code>%</code> conserva il resto. È un modello utile ogni volta che una quantità deve essere separata in unità maggiori e minori.</p>
-<div class="code"><button class="copy">Copia</button><pre><code>centesimi = int(input("Centesimi: "))
+print(&quot;riga 2&quot;)</code></pre>
+        </div>
+        <div class="out">
+          <span>Output</span>
+          <pre>
+a-b-c
+riga 1 riga 2</pre
+          >
+        </div>
+        <h2 id="s8">4.4 input() e conversioni</h2>
+        <p>
+          <code>input()</code> restituisce <b>sempre testo</b>. Per i numeri
+          converti con <code>int()</code> o <code>float()</code>.
+        </p>
+        <div class="code">
+          <button class="copy">Copia</button>
+          <pre><code>prezzo = float(input(&quot;Prezzo: &quot;))
+quantita = int(input(&quot;Quantità: &quot;))</code></pre>
+        </div>
+        <div class="box warn">
+          <b>Attenzione</b>Se l'utente scrive testo non numerico,
+          <code>int()</code>/<code>float()</code> sollevano
+          <code>ValueError</code> (vedi eccezioni).
+        </div>
+        <h2 id="s9">4.5 Calcoli e funzioni matematiche</h2>
+        <div class="tw">
+          <table>
+            <thead>
+              <tr>
+                <th>Operatore/funzione</th>
+                <th>Significato</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>+ - * /</code></td>
+                <td>operazioni (la <code>/</code> dà sempre float)</td>
+              </tr>
+              <tr>
+                <td><code>//</code> e <code>%</code></td>
+                <td>divisione intera e resto</td>
+              </tr>
+              <tr>
+                <td><code>**</code></td>
+                <td>potenza</td>
+              </tr>
+              <tr>
+                <td><code>abs, round, min, max, sum</code></td>
+                <td>built-in</td>
+              </tr>
+              <tr>
+                <td>
+                  <code>math.sqrt, sin, cos, exp, log, floor, ceil, trunc</code>
+                </td>
+                <td>modulo math</td>
+              </tr>
+              <tr>
+                <td><code>math.isclose(a,b,...)</code></td>
+                <td>confronto tra float con tolleranza</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          Precedenza: parentesi, <code>**</code>, <code>* / // %</code>,
+          <code>+ -</code>.
+        </p>
+        <h2 id="s10">4.6 Stringhe</h2>
+        <h3 id="s11">Indici e slicing</h3>
+        <div class="code">
+          <button class="copy">Copia</button>
+          <pre><code>s = &quot;Python&quot;
+print(s[0], s[-1], s[1:4], s[::-1])</code></pre>
+        </div>
+        <div class="out">
+          <span>Output</span>
+          <pre>P n yth nohtyP</pre>
+        </div>
+        <h3 id="s12">Metodi principali</h3>
+        <div class="tw">
+          <table>
+            <thead>
+              <tr>
+                <th>Metodo</th>
+                <th>Cosa fa</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>lower() / upper()</code></td>
+                <td>minuscolo / maiuscolo</td>
+              </tr>
+              <tr>
+                <td><code>strip(), lstrip(), rstrip()</code></td>
+                <td>toglie spazi</td>
+              </tr>
+              <tr>
+                <td><code>replace(a,b)</code></td>
+                <td>sostituisce</td>
+              </tr>
+              <tr>
+                <td><code>find(x) / index(x)</code></td>
+                <td>posizione (-1 / errore)</td>
+              </tr>
+              <tr>
+                <td><code>count(x)</code></td>
+                <td>occorrenze</td>
+              </tr>
+              <tr>
+                <td><code>startswith / endswith</code></td>
+                <td>inizio/fine</td>
+              </tr>
+              <tr>
+                <td>
+                  <code
+                    >isalpha, isdigit, isalnum, isspace, islower, isupper</code
+                  >
+                </td>
+                <td>controlli</td>
+              </tr>
+              <tr>
+                <td><code>split(sep)</code> / <code>sep.join(lista)</code></td>
+                <td>da stringa a lista e viceversa</td>
+              </tr>
+              <tr>
+                <td><code>len(s)</code>, <code>x in s</code></td>
+                <td>lunghezza, appartenenza</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <h3 id="s13">Virgolette, backslash e Unicode</h3>
+        <p>
+          Usa <code>\n</code> per andare a capo, <code>\t</code> per tab,
+          <code>\"</code> per virgolette. <code>ord("A")</code> → 65;
+          <code>chr(65)</code> → <code>"A"</code>.
+        </p>
+        <div class="box info">
+          <b>Nota</b>Le stringhe sono <b>immutabili</b>: i metodi restituiscono
+          una nuova stringa, quindi salva il risultato.
+        </div>
+        <h2 id="s14">Esempi completi dalle slide</h2>
+        <p>
+          Gli esempi delle slide mettono insieme assegnazioni, conversioni e
+          formattazione. Il programma seguente trasforma un numero di centesimi
+          in dollari e centesimi: <code>//</code> calcola le unità intere,
+          mentre <code>%</code> conserva il resto. È un modello utile ogni volta
+          che una quantità deve essere separata in unità maggiori e minori.
+        </p>
+        <div class="code">
+          <button class="copy">Copia</button>
+          <pre><code>centesimi = int(input("Centesimi: "))
 dollari = centesimi // 100
 resto = centesimi % 100
-print(f"{dollari} dollari e {resto:02d} centesimi")</code></pre></div>
-<p>Per confrontare i risultati non è necessario concatenare manualmente molte stringhe: una <b>f-string</b> inserisce le espressioni tra parentesi graffe e permette di scegliere il formato. <code>:.2f</code> mostra due cifre decimali, mentre <code>:02d</code> aggiunge uno zero davanti agli interi più corti.</p>
-<div class="code"><button class="copy">Copia</button><pre><code>raggio = 3.5
+print(f"{dollari} dollari e {resto:02d} centesimi")</code></pre>
+        </div>
+        <p>
+          Per confrontare i risultati non è necessario concatenare manualmente
+          molte stringhe: una <b>f-string</b> inserisce le espressioni tra
+          parentesi graffe e permette di scegliere il formato.
+          <code>:.2f</code> mostra due cifre decimali, mentre
+          <code>:02d</code> aggiunge uno zero davanti agli interi più corti.
+        </p>
+        <div class="code">
+          <button class="copy">Copia</button>
+          <pre><code>raggio = 3.5
 area = 3.141592653589793 * raggio ** 2
-print(f"Area del cerchio: {area:.2f}")</code></pre></div>
-<p>Ricorda la distinzione tra nome e valore: <code>taxRate</code> e <code>taxrate</code> sono variabili diverse. Un errore di maiuscole/minuscole può quindi lasciare invariato un valore e rendere il risultato apparentemente misterioso.</p>
-<nav class="pager" aria-label="Pagine"><a class="prev" href="step1-3.html"><small>Precedente</small>Step 1–3: Capire e pianificare</a><a class="next" href="step4-controllo.html"><small>Successivo</small>Step 4 (2): Decisioni e cicli</a></nav></main><aside id="toc" aria-label="In questa pagina"><b>In questa pagina</b><a class="" href="#s1">4.1 Variabili e tipi</a><a class="" href="#s2">4.2 Funzioni e metodi</a><a class="sub" href="#s3">Built-in e moduli</a><a class="sub" href="#s4">Il punto prima del nome: i metodi</a><a class="" href="#s5">4.3 print()</a><a class="sub" href="#s6">Cifre decimali</a><a class="sub" href="#s7">sep ed end</a><a class="" href="#s8">4.4 input() e conversioni</a><a class="" href="#s9">4.5 Calcoli e funzioni matematiche</a><a class="" href="#s10">4.6 Stringhe</a><a class="sub" href="#s11">Indici e slicing</a><a class="sub" href="#s12">Metodi principali</a><a class="sub" href="#s13">Virgolette, backslash e Unicode</a></aside></div><script src="js/search-index.js"></script><script src="js/app.js"></script></body></html>
+print(f"Area del cerchio: {area:.2f}")</code></pre>
+        </div>
+        <p>
+          Ricorda la distinzione tra nome e valore: <code>taxRate</code> e
+          <code>taxrate</code> sono variabili diverse. Un errore di
+          maiuscole/minuscole può quindi lasciare invariato un valore e rendere
+          il risultato apparentemente misterioso.
+        </p>
+        <nav class="pager" aria-label="Pagine">
+          <a class="prev" href="step1-3.html"
+            ><small>Precedente</small>Step 1–3: Capire e pianificare</a
+          ><a class="next" href="step4-controllo.html"
+            ><small>Successivo</small>Step 4 (2): Decisioni e cicli</a
+          >
+        </nav>
+      </main>
+      <aside id="toc" aria-label="In questa pagina">
+        <b>In questa pagina</b><a class="" href="#s1">4.1 Variabili e tipi</a
+        ><a class="" href="#s2">4.2 Funzioni e metodi</a
+        ><a class="sub" href="#s3">Built-in e moduli</a
+        ><a class="sub" href="#s4">Il punto prima del nome: i metodi</a
+        ><a class="" href="#s5">4.3 print()</a
+        ><a class="sub" href="#s6">Cifre decimali</a
+        ><a class="sub" href="#s7">sep ed end</a
+        ><a class="" href="#s8">4.4 input() e conversioni</a
+        ><a class="" href="#s9">4.5 Calcoli e funzioni matematiche</a
+        ><a class="" href="#s10">4.6 Stringhe</a
+        ><a class="sub" href="#s11">Indici e slicing</a
+        ><a class="sub" href="#s12">Metodi principali</a
+        ><a class="sub" href="#s13">Virgolette, backslash e Unicode</a>
+      </aside>
+    </div>
+    <script src="js/search-index.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
